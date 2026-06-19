@@ -1,0 +1,29 @@
+{
+  "name": "salami-iron-store",
+  "version": "1.0.0",
+  "description": "Professional E-commerce Platform for Salami Iron Store",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev --parallel",
+    "build": "turbo run build",
+    "start": "turbo run start",
+    "lint": "turbo run lint",
+    "format": "turbo run format",
+    "type-check": "turbo run type-check",
+    "db:migrate": "cd apps/backend && npx typeorm migration:run -d src/database/data-source.ts",
+    "db:generate": "cd apps/backend && npx typeorm migration:generate",
+    "db:seed": "cd apps/backend && ts-node src/database/seeders/index.ts"
+  },
+  "devDependencies": {
+    "turbo": "^2.0.0",
+    "typescript": "^5.3.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  }
+}
